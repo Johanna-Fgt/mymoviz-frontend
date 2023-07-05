@@ -59,15 +59,13 @@ function Home() {
 			/>
 		);
 	});
+
 	useEffect(() => {
-		console.log('mount');
-		const URL = 'https://mymoviz-backend-liart.vercel.app/movies';
+		const URL = 'https://mymoviz-backend-coral.vercel.app/movies';
 		fetch(URL)
 			.then((res) => res.json())
 			.then((d) => {
-				console.log(d);
 				d.result ? setMoviesData(d.movies) : console.log(d.error);
-				console.log(moviesData);
 			});
 	}, []);
 
