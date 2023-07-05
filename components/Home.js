@@ -65,7 +65,17 @@ function Home() {
 		fetch(URL)
 			.then((res) => res.json())
 			.then((d) => {
-				d.result ? setMoviesData(d.movies) : console.log(d.error);
+				const movies = d.movies.map((el) => ({
+					title: el.title,
+					poster: `https://image.tmdb.org/t/p/w500/${el.poster_path}`,
+					voteAverage: el.vote_average,
+					voteCount: el.vote_count,
+					overview:
+						el.overview.split('').length > 250
+							? `${el.overview.slice(0, 250)} ...`
+							: el.overview,
+				}));
+				setMoviesData(movies);
 			});
 	}, []);
 
