@@ -61,7 +61,7 @@ function Home() {
 	});
 	useEffect(() => {
 		console.log('mount');
-		const URL = 'https://mymoviz-backend-two-kohl.vercel.app/movies';
+		const URL = 'https://mymoviz-backend-liart.vercel.app/movies';
 		fetch(URL)
 			.then((res) => res.json())
 			.then((d) => {
